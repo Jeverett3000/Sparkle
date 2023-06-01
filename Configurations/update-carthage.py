@@ -13,8 +13,10 @@ with open(carthage_file, "r") as json_file:
     data = json.load(json_file)
     if release_tag in data:
         sys.exit(0)
-    
+
 with open(carthage_file, "w") as json_file:
-    data[release_tag] = "https://github.com/sparkle-project/Sparkle/releases/download/" + release_tag + "/Sparkle-" + release_tag + ".tar.xz"
+    data[
+        release_tag
+    ] = f"https://github.com/sparkle-project/Sparkle/releases/download/{release_tag}/Sparkle-{release_tag}.tar.xz"
 
     json.dump(data, json_file)
